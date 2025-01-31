@@ -20,8 +20,23 @@ const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
           </a>
         </li>
         <li>
-          <a href="#" id="other-tab" onClick={() => onTabClick("other")}>
-            기타사항
+          <a href="#" id="award-tab" onClick={() => onTabClick("award")}>
+            수상
+          </a>
+        </li>
+        <li>
+          <a href="#" id="volunteer-tab" onClick={() => onTabClick("volunteer")}>
+            봉사활동
+          </a>
+        </li>
+        <li>
+          <a href="#" id="international-tab" onClick={() => onTabClick("international")}>
+            대/외활동
+          </a>
+        </li>
+        <li>
+          <a href="#" id="internship-tab" onClick={() => onTabClick("internship")}>
+            인턴십
           </a>
         </li>
       </ul>

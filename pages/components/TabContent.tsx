@@ -16,7 +16,7 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
     typeof item === "object" &&
     typeof item.where === "string" &&
     typeof item.what === "string" &&
-    typeof item.skills === "string"
+    typeof item.skills === "object"
   );
   const isSkill = content && typeof content === 'object' && content.every(item =>
     typeof item === "object" &&
@@ -39,36 +39,46 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
     typeof item.what === "string"
   );
 
+  console.log(content)
+  console.log("isEducation: " + isEducation)
+  console.log("isInternship: " + isInternship)
+  console.log("isSkill: " + isSkill)
+  console.log("isAward: " + isAward)
+  console.log("isInternational: " + isInternational)
+  console.log("isVolunteer: " + isVolunteer)
+
   if (isEducation) {
     return (
-<ul>
-  {content.map((item, index) => (
-    <li key={index}>
-      <strong>{item.institution}</strong>: {item.degree} ({item.started} - {item.ended})
-    </li>
-  ))}
-</ul>
-
+      <div>
+        {content.map((item, index) => (
+          <div>
+            <p className="focus">{item.institution}</p>
+            <p>{item.degree}</p>
+            <p>({item.started} - {item.ended})</p>
+          </div>
+        ))}
+      </div>
     );
   } else if (isInternship) {
     return (
       <div>
         {content.map((item, index) => (
           <div>
-            <p key={index}>{item.where}</p>
+            <p className="focus" key={index}>{item.where}</p>
             <p key={index}>{item.what}</p>
-            <p key={index}>{item.skills}</p>
+            ({item.skills.map((skill: string, skillIndex: string) => (
+              <p key={skillIndex}>{skill}</p>
+            ))})
           </div>
         ))}
       </div>
     );
   } else if (isSkill) {
-    
     return (
       <div>
         {content.map((item, index) => (
           <div>
-            <p key={index}>{item.title}</p>
+            <p className="focus" key={index}>{item.title}</p>
             {item.values.map((item2: string, index2: number) => (
               <p key={index2}>{item2}</p>
             ))}
@@ -81,7 +91,8 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
       <div>
         {content.map((item, index) => (
           <div>
-            <p key={index}>{item.title}: {item.value}</p>
+            <p className="focus" key={index}>{item.value}</p>
+            <p key={index}>{item.title}</p>
           </div>
         ))}
       </div>
@@ -91,7 +102,7 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
       <div>
         {content.map((item, index) => (
           <div>
-            <p key={index}>{item.title}</p>
+            <p className="focus" key={index}>{item.title}</p>
             <p key={index}>{item.description}</p>
           </div>
         ))}
@@ -102,7 +113,7 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
       <div>
         {content.map((item, index) => (
           <div>
-            <p key={index}>{item.where}</p>
+            <p className="focus" key={index}>{item.where}</p>
             <p key={index}>{item.what}</p>
           </div>
         ))}

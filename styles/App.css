@@ -5,7 +5,7 @@
 }
 
 html {
-  height: -webkit-fill-available;
+    height: -webkit-fill-available;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 header {
     background-color: #D9A689;
     color: white;
-    display: flex;
+    display: grid;
     align-items: center;
     padding: 20px;
     border-radius: 10px;
@@ -38,18 +38,65 @@ img {
     width: 20%;
 }
 
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
 .profile-img {
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    margin-right: 30px;
-    transform: scale(0);
-    animation: scaleUp 1s forwards;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    object-fit: cover;
+    margin-right: 20px;
     transition: transform 0.3s ease-in-out;
 }
 
 .profile-img:hover {
     transform: scale(1.1);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info div {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.contact-info a img {
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.contact-info a img:hover {
+    transform: rotate(10deg) scale(1.2);
 }
 
 .contact-info p {
@@ -101,17 +148,17 @@ nav ul li a:hover {
 .timeline-container {
     max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  .timeline {
+}
+
+.timeline {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     padding: 40px 0;
-  }
-  
-  .timeline::before {
+}
+
+.timeline::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -121,15 +168,15 @@ nav ul li a:hover {
     background-color: #D9A689;
     transform: translateY(-50%);
     z-index: 1;
-  }
-  
-  .timeline-item {
+}
+
+.timeline-item {
     text-align: center;
     position: relative;
     z-index: 2;
-  }
-  
-  .timeline-icon {
+}
+
+.timeline-icon {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -142,9 +189,9 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .timeline-content {
+}
+
+.timeline-content {
     max-width: 200px;
     background-color: #fff;
     padding: 15px;
@@ -153,21 +200,88 @@ nav ul li a:hover {
     transform: translateY(20px);
     opacity: 0;
     animation: slideIn 0.5s forwards;
-  }
-  
-  .timeline-content h3 {
+}
+
+.timeline-content h3 {
     margin-bottom: 10px;
     font-size: 1.2rem;
     color: #D9A689;
-  }
-  
-  .timeline-content p {
+}
+
+.timeline-content p {
     font-size: 0.9rem;
     line-height: 1.4;
     color: #555;
-  }
+}
 
-  @keyframes fadeIn {
+section {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.tab-content div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.tab-content div div {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.tab-content div div:hover {
+    transform: scale(1.05);
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tab-content p.focus {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #F0C1B4;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 20px;
+    }
+    .tab-content div {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes fadeIn {
     to {
         opacity: 1;
     }

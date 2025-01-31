@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="ko">
       <Head>
-        <title>자기소개하기!</title>
+        <title>Resume of Small-goliath</title>
         <link rel="stylesheet" href="styles/App.css" />
       </Head>
 
