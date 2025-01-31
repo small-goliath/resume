@@ -1,57 +1,51 @@
 import React from "react";
+import { AwardProp, EducationProp, InternationalProp, InternshipProp, SkillProp, VolunteerProp } from "../../dataProp";
 
 interface TabContentProps {
-  content: any[];
+  content: EducationProp[] | SkillProp[] | AwardProp[] | VolunteerProp[] | InternationalProp[] | InternshipProp[];
 }
 
 const TabContent: React.FC<TabContentProps> = ({ content }) => {
-  const isEducation = content && typeof content === 'object' && content.every(item =>
+  const isEducation = content && typeof content === 'object' && (content as EducationProp[]).every(item =>
     typeof item === "object" &&
     typeof item.institution === "string" &&
     typeof item.degree === "string" &&
     typeof item.started === "string" &&
     typeof item.ended === "string"
   );
-  const isInternship = content && typeof content === 'object' && content.every(item =>
+  const isInternship = content && typeof content === 'object' && (content as InternshipProp[]).every(item =>
     typeof item === "object" &&
     typeof item.where === "string" &&
     typeof item.what === "string" &&
     typeof item.skills === "object"
   );
-  const isSkill = content && typeof content === 'object' && content.every(item =>
+  const isSkill = content && typeof content === 'object' && (content as SkillProp[]).every(item =>
     typeof item === "object" &&
     typeof item.title === "string" &&
     typeof item.values === "object"
   );
-  const isAward = content && typeof content === 'object' && content.every(item =>
+  const isAward = content && typeof content === 'object' && (content as AwardProp[]).every(item =>
     typeof item === "object" &&
     typeof item.title === "string" &&
     typeof item.value === "string"
   );
-  const isInternational = content && typeof content === 'object' && content.every(item =>
+  const isInternational = content && typeof content === 'object' && (content as InternationalProp[]).every(item =>
     typeof item === "object" &&
     typeof item.title === "string" &&
     typeof item.description === "string"
   );
-  const isVolunteer = content && typeof content === 'object' && content.every(item =>
+  const isVolunteer = content && typeof content === 'object' && (content as VolunteerProp[]).every(item =>
     typeof item === "object" &&
     typeof item.where === "string" &&
     typeof item.what === "string"
   );
 
-  console.log(content)
-  console.log("isEducation: " + isEducation)
-  console.log("isInternship: " + isInternship)
-  console.log("isSkill: " + isSkill)
-  console.log("isAward: " + isAward)
-  console.log("isInternational: " + isInternational)
-  console.log("isVolunteer: " + isVolunteer)
-
   if (isEducation) {
+    const contents = content as EducationProp[];
     return (
       <div>
-        {content.map((item, index) => (
-          <div>
+        {contents.map((item, index) => (
+          <div key={index}>
             <p className="focus">{item.institution}</p>
             <p>{item.degree}</p>
             <p>({item.started} - {item.ended})</p>
@@ -60,13 +54,14 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
       </div>
     );
   } else if (isInternship) {
+    const contents = content as InternshipProp[];
     return (
       <div>
-        {content.map((item, index) => (
-          <div>
-            <p className="focus" key={index}>{item.where}</p>
+        {contents.map((item, index) => (
+          <div key={index}>
+            <p className="focus">{item.where}</p>
             <p key={index}>{item.what}</p>
-            ({item.skills.map((skill: string, skillIndex: string) => (
+            ({item.skills.map((skill: string, skillIndex: number) => (
               <p key={skillIndex}>{skill}</p>
             ))})
           </div>
@@ -74,11 +69,13 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
       </div>
     );
   } else if (isSkill) {
+    const contents = content as SkillProp[];
+
     return (
       <div>
-        {content.map((item, index) => (
-          <div>
-            <p className="focus" key={index}>{item.title}</p>
+        {contents.map((item, index) => (
+          <div key={index}>
+            <p className="focus">{item.title}</p>
             {item.values.map((item2: string, index2: number) => (
               <p key={index2}>{item2}</p>
             ))}
@@ -87,34 +84,40 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
       </div>
     );
   } else if (isAward) {
+    const contents = content as AwardProp[];
+
     return (
       <div>
-        {content.map((item, index) => (
-          <div>
-            <p className="focus" key={index}>{item.value}</p>
+        {contents.map((item, index) => (
+          <div key={index}>
+            <p className="focus">{item.value}</p>
             <p key={index}>{item.title}</p>
           </div>
         ))}
       </div>
     );
   } else if (isInternational) {
+    const contents = content as InternationalProp[];
+
     return (
       <div>
-        {content.map((item, index) => (
-          <div>
-            <p className="focus" key={index}>{item.title}</p>
-            <p key={index}>{item.description}</p>
+        {contents.map((item, index) => (
+          <div key={index}>
+            <p className="focus">{item.title}</p>
+            <p>{item.description}</p>
           </div>
         ))}
       </div>
     );
   } else if (isVolunteer) {
+    const contents = content as VolunteerProp[];
+
     return (
       <div>
-        {content.map((item, index) => (
-          <div>
-            <p className="focus" key={index}>{item.where}</p>
-            <p key={index}>{item.what}</p>
+        {contents.map((item, index) => (
+          <div key={index}>
+            <p className="focus">{item.where}</p>
+            <p>{item.what}</p>
           </div>
         ))}
       </div>
@@ -122,9 +125,6 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
   } else {
     return (
       <div>
-        {content.map((item, index) => (
-          <p key={index}>{item}</p>
-        ))}
       </div>
     );
   }

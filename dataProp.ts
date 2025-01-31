@@ -2,7 +2,7 @@ type EducationProp = {
   institution: string;
   degree: string;
   started: string;
-  end: string;
+  ended: string;
 }
   
 type SkillProp = {

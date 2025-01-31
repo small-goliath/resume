@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { AwardProp, EducationProp, InternationalProp, InternshipProp, SkillProp, TimelineProp, VolunteerProp } from "../dataProp";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import TabContent from "./components/TabContent";
-import { AwardProp, EducationProp, InternationalProp, InternshipProp, SkillProp, TimelineProp, VolunteerProp } from "./dataProp";
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("education");
 
   useEffect(() => {
     document.getElementById("education-tab")?.click();
-    console.log(typeof timeline[0])
   }, []);
 
   const showTab = (tab: string) => {
@@ -26,6 +25,7 @@ const App: React.FC = () => {
 
   return (
     <div className="container">
+      <title>Resume of Small-goliath</title>
       <header>
         <Profile />
       </header>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
         <div className="timeline-container">
           <div className="timeline">
           {timeline.map((item, index) => (
-            <div className="timeline-item">
+            <div className="timeline-item" key={index}>
               <div className="timeline-icon">{item.started}</div>
               <div className="timeline-content">
                 <h3>{item.where}</h3>
