@@ -16,6 +16,7 @@ body {
 }
 
 .container {
+    display: grid;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -24,7 +25,7 @@ body {
 header {
     background-color: #D9A689;
     color: white;
-    display: grid;
+    display: inline-grid;
     align-items: center;
     padding: 20px;
     border-radius: 10px;
