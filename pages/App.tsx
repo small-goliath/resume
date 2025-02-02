@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AwardProp, EducationProp, InternationalProp, InternshipProp, SkillProp, TimelineProp, VolunteerProp } from "../dataProp";
+import { AwardProp, EducationProp, InternationalProp, InternshipProp, ResearchProp, SkillProp, TimelineProp, VolunteerProp } from "../dataProp";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import TabContent from "./components/TabContent";
@@ -21,6 +21,7 @@ const App: React.FC = () => {
   const volunteer = JSON.parse(process.env.NEXT_PUBLIC_VOLUNTEER || "[]") as VolunteerProp[]
   const international = JSON.parse(process.env.NEXT_PUBLIC_INTERNATIONAL || "[]") as InternationalProp[]
   const internship = JSON.parse(process.env.NEXT_PUBLIC_INTERNSHIP || "[]") as InternshipProp[]
+  const research = JSON.parse(process.env.NEXT_PUBLIC_RESEARCH || "[]") as ResearchProp[]
   const timeline = JSON.parse(process.env.NEXT_PUBLIC_TIMELINE || "[]") as TimelineProp[]
 
   return (
@@ -49,6 +50,9 @@ const App: React.FC = () => {
       </section>
       <section id="internship" className={`tab-content ${activeTab === "internship" ? "active" : ""}`}>
         <TabContent content={internship} />
+      </section>
+      <section id="research" className={`tab-content ${activeTab === "research" ? "active" : ""}`}>
+        <TabContent content={research} />
       </section>
 
       <section id="timeline">

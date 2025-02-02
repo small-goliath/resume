@@ -1,8 +1,8 @@
 import React from "react";
-import { AwardProp, EducationProp, InternationalProp, InternshipProp, SkillProp, VolunteerProp } from "../../dataProp";
+import { AwardProp, EducationProp, InternationalProp, InternshipProp, ResearchProp, SkillProp, VolunteerProp } from "../../dataProp";
 
 interface TabContentProps {
-  content: EducationProp[] | SkillProp[] | AwardProp[] | VolunteerProp[] | InternationalProp[] | InternshipProp[];
+  content: EducationProp[] | SkillProp[] | AwardProp[] | VolunteerProp[] | InternationalProp[] | InternshipProp[] | ResearchProp[];
 }
 
 const TabContent: React.FC<TabContentProps> = ({ content }) => {
@@ -39,6 +39,15 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
     typeof item.where === "string" &&
     typeof item.what === "string"
   );
+  const isResearch = content && typeof content === 'object' && (content as ResearchProp[]).every(item =>
+    typeof item === "object" &&
+    typeof item.type === "string" &&
+    typeof item.title === "string" &&
+    typeof item.url === "string" &&
+    typeof item.description === "string"
+  );
+
+
 
   if (isEducation) {
     const contents = content as EducationProp[];
@@ -92,6 +101,20 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
           <div key={index}>
             <p className="focus">{item.value}</p>
             <p key={index}>{item.title}</p>
+          </div>
+        ))}
+      </div>
+    );
+  } else if (isResearch) {
+    const contents = content as ResearchProp[];
+
+    return (
+      <div>
+        {contents.map((item, index) => (
+          <div key={index}>
+            <p className="focus">{item.type}</p>
+            <a className="research-href" href={item.url} target='_blank'>{item.title}</a>
+            <p className="research-desc">{item.description}</p>
           </div>
         ))}
       </div>

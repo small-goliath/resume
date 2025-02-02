@@ -11,7 +11,7 @@ const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
       <ul>
         <li>
           <a href="#" id="education-tab" onClick={() => onTabClick("education")}>
-            학력사항
+            교육사항
           </a>
         </li>
         <li>
@@ -37,6 +37,11 @@ const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
         <li>
           <a href="#" id="internship-tab" onClick={() => onTabClick("internship")}>
             인턴십
+          </a>
+        </li>
+        <li>
+          <a href="#" id="research-tab" onClick={() => onTabClick("research")}>
+            연구활동
           </a>
         </li>
       </ul>

@@ -15,6 +15,7 @@ declare namespace NodeJS {
         readonly NEXT_PUBLIC_INTERNATIONAL: string;
         readonly NEXT_PUBLIC_INTERNSHIP: string;
         readonly NEXT_PUBLIC_TIMELINE: string;
+        readonly NEXT_PUBLIC_RESEARCH: string;
       }
 }
 

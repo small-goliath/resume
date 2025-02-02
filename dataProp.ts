@@ -40,4 +40,12 @@ type TimelineProp = {
   during: string;
 }
 
-export type { AwardProp, EducationProp, InternationalProp, InternshipProp, SkillProp, TimelineProp, VolunteerProp };
+type ResearchProp = {
+  type: string;
+  title: string;
+  url: string;
+  description: string;
+}
+
+export type { AwardProp, EducationProp, InternationalProp, InternshipProp, ResearchProp, SkillProp, TimelineProp, VolunteerProp };
+

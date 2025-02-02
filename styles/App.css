@@ -273,6 +273,14 @@ section:hover {
     color: #F0C1B4;
 }
 
+.research-desc {
+    color: #999;
+}
+
+.research-href {
+    color: black;
+}
+
 @media (max-width: 768px) {
     section {
         padding: 20px;
