@@ -35,6 +35,15 @@ header {
     animation: fadeIn 1s forwards;
 }
 
+header video {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+
 img {
     width: 20%;
 }
@@ -307,6 +316,18 @@ section:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 842px) {
+    header video {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 40%;
+        width: auto;
+        object-fit: cover;
+        z-index: -1;
+    }
 }
 
 @media (max-width: 768px) {

@@ -4,6 +4,10 @@ import React from "react";
 const Profile: React.FC = () => {
   return (
     <div className="profile">
+      <video autoPlay loop muted playsInline>
+        <source src={`/api/py/download-latest/${process.env.NEXT_PUBLIC_RESUME_BUCKET_NAME}?object_name=${process.env.NEXT_PUBLIC_PROFILE_BACKGROUND_FILE_NAME}`} type="video/mp4" />브라우저가 동영상을 지원하지 않습니다.
+      </video>
+      
       <Image src="/profile.png" alt="Profile Image" className="profile-img" width={130} height={150}/>
       <div className="contact-info">
         <p id="name">성명: {process.env.NEXT_PUBLIC_NAME}</p>
@@ -19,12 +23,11 @@ const Profile: React.FC = () => {
           </a>
         </div>
 
-        {/* 다운로드 버튼 추가 */}
         <div className="resume-buttons">
-          <a href="/api/py/download-latest/resume?object_name=resume.pdf" download="자기소개서.pdf" className="download-btn">
+          <a href={`/api/py/download-latest/${process.env.NEXT_PUBLIC_RESUME_BUCKET_NAME}?object_name=${process.env.NEXT_PUBLIC_MINIO_RESUME_OBJECT_NAME}`} download="자기소개서.pdf" className="download-btn">
             📄 자기소개서 다운로드
           </a>
-          <a href="/api/py/download-latest/resume?object_name=career.pdf" download="경력기술서.pdf" className="download-btn">
+          <a href={`/api/py/download-latest/${process.env.NEXT_PUBLIC_RESUME_BUCKET_NAME}?object_name=${process.env.NEXT_PUBLIC_MINIO_CAREER_OBJECT_NAME}`} className="download-btn">
             🏆 경력기술서 다운로드
           </a>
         </div>

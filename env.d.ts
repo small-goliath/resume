@@ -8,6 +8,10 @@ declare namespace NodeJS {
         readonly NEXT_PUBLIC_BIRTHDAY: string;
         readonly NEXT_PUBLIC_GITHUB: string;
         readonly NEXT_PUBLIC_TECH_BLOG: string;
+        readonly NEXT_PUBLIC_RESUME_BUCKET_NAME: string;
+        readonly NEXT_PUBLIC_MINIO_RESUME_OBJECT_NAME: string;
+        readonly NEXT_PUBLIC_MINIO_CAREER_OBJECT_NAME: string;
+        readonly NEXT_PUBLIC_PROFILE_BACKGROUND_FILE_NAME: string;
         readonly NEXT_PUBLIC_EDUCATION: string;
         readonly NEXT_PUBLIC_SKILLS: string;
         readonly NEXT_PUBLIC_AWARD: string;
