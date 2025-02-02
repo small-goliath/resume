@@ -11,6 +11,8 @@
 
 ## 📦 프로젝트 구조
 📦resume<br />
+ ┣ api<br />
+ ┃ ┣ 📜index.py<br />
  ┣ 📂pages<br />
  ┃ ┣ 📂components<br />
  ┃ ┃ ┣ 📜NavBar.tsx<br />
@@ -28,6 +30,7 @@
  ┃ ┗ 📜tistory-logo.svg<br />
  ┣ 📂styles<br />
  ┃ ┗ 📜App.css<br />
+ ┣ 📜.env<br />
  ┣ 📜.gitignore<br />
  ┣ 📜README.md<br />
  ┣ 📜env.d.ts<br />
@@ -36,18 +39,33 @@
  ┣ 📜next.config.ts<br />
  ┣ 📜package-lock.json<br />
  ┣ 📜package.json<br />
+ ┣ 📜requirements.txt<br />
  ┗ 📜tsconfig.json<br />
 
 ## 📌 실행 방법
 
-### 1. 실행
+### 1. 환경변수 설정
+<pre>
+  1. MINIO_*: 이력서 및 경력기술서 다운로드를 위한 minio 설정
+  2. NEXT_PUBLIC_*: resume 내 노출시킬 나의 정보
+  3.: cp ./example.env ./.env
+</pre>
+
+### 2. 실행
 ```bash
 npm install
 npm run build
 npm start
 ```
 
-### 2. 코드 품질 관리
+### 3. 코드 품질 관리
 ```bash
 npm run lint
 ```
+
+### 4. fastapi
+<pre>
+  fastapi base url: http://localhost:3000/api
+  documents: http://localhost:3000/api/py/docs
+  openapi json: http://localhost:3000/api/py/openapi.json
+</pre>
