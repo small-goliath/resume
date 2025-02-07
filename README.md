@@ -46,9 +46,8 @@
 
 ### 1. 환경변수 설정
 <pre>
-  1. MINIO_*: 이력서 및 경력기술서 다운로드를 위한 minio 설정
-  2. NEXT_PUBLIC_*: resume 내 노출시킬 나의 정보
-  3.: cp ./example.env ./.env
+  1. NEXT_PUBLIC_*: resume 내 노출시킬 나의 정보
+  2.: cp ./example.env ./.env
 </pre>
 
 ### 2. 실행

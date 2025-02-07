@@ -2,16 +2,17 @@
 
 declare namespace NodeJS {
     interface ProcessEnv {
-        readonly NEXT_PUBLIC_NAME: string;
-        readonly NEXT_PUBLIC_EMAIL: string;
-        readonly NEXT_PUBLIC_ADDRESS: string;
-        readonly NEXT_PUBLIC_BIRTHDAY: string;
-        readonly NEXT_PUBLIC_GITHUB: string;
-        readonly NEXT_PUBLIC_TECH_BLOG: string;
-        readonly NEXT_PUBLIC_RESUME_BUCKET_NAME: string;
-        readonly NEXT_PUBLIC_MINIO_RESUME_OBJECT_NAME: string;
-        readonly NEXT_PUBLIC_MINIO_CAREER_OBJECT_NAME: string;
-        readonly NEXT_PUBLIC_PROFILE_BACKGROUND_FILE_NAME: string;
+        readonly NEXT_PUBLIC_PROFILE_NAME: string;
+        readonly NEXT_PUBLIC_PROFILE_EMAIL: string;
+        readonly NEXT_PUBLIC_PROFILE_ADDRESS: string;
+        readonly NEXT_PUBLIC_PROFILE_BIRTHDAY: string;
+        readonly NEXT_PUBLIC_PROFILE_GITHUB: string;
+        readonly NEXT_PUBLIC_PROFILE_TECH_BLOG: string;
+        readonly NEXT_PUBLIC_PROFILE_RESUME_OBJECT_PATH: string;
+        readonly NEXT_PUBLIC_PROFILE_CAREER_OBJECT_PATH: string;
+        readonly NEXT_PUBLIC_PROFILE_BACKGROUND_OBJECT_PATH: string;
+        readonly NEXT_PUBLIC_PROFILE_BACKGROUND_MEDIA_TYPE: string;
+        readonly NEXT_PUBLIC_CDN_BASE_URL: string;
         readonly NEXT_PUBLIC_EDUCATION: string;
         readonly NEXT_PUBLIC_SKILLS: string;
         readonly NEXT_PUBLIC_AWARD: string;
