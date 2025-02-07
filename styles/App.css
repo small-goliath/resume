@@ -163,7 +163,6 @@ nav ul li a:hover {
 .timeline {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     position: relative;
     padding: 40px 0;
 }
