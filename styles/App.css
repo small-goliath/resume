@@ -29,13 +29,12 @@ header {
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     opacity: 0;
     animation: fadeIn 1s forwards;
 }
 
-header video {
+header .profile-background {
     position: absolute;
     right: 0;
     height: 100%;
@@ -122,7 +121,6 @@ nav ul {
     padding: 10px;
     border-radius: 10px;
     list-style-type: none;
-    margin-bottom: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -318,7 +316,7 @@ section:hover {
 }
 
 @media (max-width: 842px) {
-    header video {
+    header .profile-background {
         position: absolute;
         right: 0;
         top: 0;

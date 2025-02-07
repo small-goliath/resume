@@ -2,11 +2,20 @@ import Image from 'next/image';
 import React from "react";
 
 const Profile: React.FC = () => {
+  const mediaType = process.env.NEXT_PUBLIC_PROFILE_BACKGROUND_MEDIA_TYPE || "";
+  const isVideo = mediaType.startsWith("video");
+  const mediaSource = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${process.env.NEXT_PUBLIC_PROFILE_BACKGROUND_OBJECT_PATH}`;
+
   return (
     <div className="profile">
-      <video autoPlay loop muted playsInline>
-        <source src={`${process.env.NEXT_PUBLIC_CDN_BASE_URL}${process.env.NEXT_PUBLIC_PROFILE_BACKGROUND_OBJECT_PATH}`} type={`${process.env.NEXT_PUBLIC_PROFILE_BACKGROUND_MEDIA_TYPE}`} />브라우저가 미디어를 지원하지 않습니다.
-      </video>
+      {isVideo ? (
+        <video className="profile-background" autoPlay loop muted playsInline>
+          <source src={mediaSource} type={mediaType} />
+          브라우저가 미디어를 지원하지 않습니다.
+        </video>
+      ) : (
+        <Image className="profile-background" src={mediaSource} alt="Profile Background" layout="fill" objectFit="cover" />
+      )}
       
       <Image src="/profile.png" alt="Profile Image" className="profile-img" width={130} height={150}/>
       <div className="contact-info">
