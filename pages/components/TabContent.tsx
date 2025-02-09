@@ -1,11 +1,18 @@
-import React from "react";
-import { AwardProp, EducationProp, InternationalProp, InternshipProp, ResearchProp, SkillProp, VolunteerProp } from "../../dataProp";
+import Image from "next/image";
+import React, { useState } from "react";
+import { AwardProp, EducationProp, InternationalProp, InternshipProp, PeerReviewProp, ResearchProp, SkillProp, VolunteerProp } from "../../dataProp";
 
 interface TabContentProps {
-  content: EducationProp[] | SkillProp[] | AwardProp[] | VolunteerProp[] | InternationalProp[] | InternshipProp[] | ResearchProp[];
+  content: EducationProp[] | SkillProp[] | AwardProp[] | VolunteerProp[] | InternationalProp[] | InternshipProp[] | ResearchProp[] | PeerReviewProp[];
 }
 
 const TabContent: React.FC<TabContentProps> = ({ content }) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const isPeerReview = content && typeof content === 'object' && (content as PeerReviewProp[]).every(item =>
+    typeof item === "object" &&
+    typeof item.image === "string"
+  );
   const isEducation = content && typeof content === 'object' && (content as EducationProp[]).every(item =>
     typeof item === "object" &&
     typeof item.institution === "string" &&
@@ -46,8 +53,6 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
     typeof item.url === "string" &&
     typeof item.description === "string"
   );
-
-
 
   if (isEducation) {
     const contents = content as EducationProp[];
@@ -107,16 +112,20 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
     );
   } else if (isResearch) {
     const contents = content as ResearchProp[];
+    const cdn = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}`;
 
     return (
       <div>
-        {contents.map((item, index) => (
-          <div key={index}>
-            <p className="focus">{item.type}</p>
-            <a className="research-href" href={item.url} target='_blank'>{item.title}</a>
-            <p className="research-desc">{item.description}</p>
-          </div>
-        ))}
+        {contents.map((item, index) => {
+          const originalUrl = `${cdn}${item.original}`;
+
+          return (
+            <div key={index}>
+              <p className="focus">{item.type} <a className="research-href" href={originalUrl} target='_blank'>(원문 열람)</a></p>
+              <a className="research-href" href={item.url} target='_blank'>{item.title}</a>
+              <p className="research-desc">{item.description}</p>
+            </div>
+        )})}
       </div>
     );
   } else if (isInternational) {
@@ -143,6 +152,31 @@ const TabContent: React.FC<TabContentProps> = ({ content }) => {
             <p>{item.what}</p>
           </div>
         ))}
+      </div>
+    );
+  } else if (isPeerReview) {
+    const contents = content as PeerReviewProp[];
+    const cdn = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}`;
+    
+    return (
+      <div className={`peer-review-container ${selectedImage ? "expanded" : ""}`}>
+        {contents.map((item, index) => {
+          const imageUrl = `${cdn}${item.image}`;
+    
+          return (
+            <div className="peer-review-card" key={index} onClick={() => setSelectedImage(imageUrl)}>
+              <Image src={imageUrl} alt={`Peer Review ${index + 1}`} width={300} height={200} className="peer-review-img" />
+            </div>
+          );
+        })}
+    
+        {selectedImage && (
+          <div className="modal" onClick={() => setSelectedImage(null)}>
+            <div className="modal-content">
+              <Image src={selectedImage} alt="Selected Peer Review" width={800} height={600} />
+            </div>
+          </div>
+        )}
       </div>
     );
   } else {

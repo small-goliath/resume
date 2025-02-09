@@ -114,6 +114,10 @@ img {
     font-size: 1.1rem;
 }
 
+nav {
+    margin-top: 10px;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
@@ -284,6 +288,7 @@ section:hover {
 }
 
 .research-href {
+    font-weight: 400;
     color: black;
 }
 
@@ -326,6 +331,78 @@ section:hover {
         z-index: -1;
     }
 }
+
+.peer-review-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.peer-review-container.expanded {
+    min-height: 1100px;
+}
+
+.peer-review-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.peer-review-card:hover {
+    transform: scale(1.05);
+}
+
+.peer-review-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .peer-review-container {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        max-width: 80%;
+    }
+}
+
 
 @media (max-width: 768px) {
     .resume-buttons {
@@ -379,7 +456,7 @@ section:hover {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 792px) {
     header {
         flex-direction: column;
         align-items: flex-start;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AwardProp, EducationProp, InternationalProp, InternshipProp, ResearchProp, SkillProp, TimelineProp, VolunteerProp } from "../dataProp";
+import { AwardProp, EducationProp, InternationalProp, InternshipProp, PeerReviewProp, ResearchProp, SkillProp, TimelineProp, VolunteerProp } from "../dataProp";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import TabContent from "./components/TabContent";
@@ -22,6 +22,7 @@ const App: React.FC = () => {
   const international = JSON.parse(process.env.NEXT_PUBLIC_INTERNATIONAL || "[]") as InternationalProp[]
   const internship = JSON.parse(process.env.NEXT_PUBLIC_INTERNSHIP || "[]") as InternshipProp[]
   const research = JSON.parse(process.env.NEXT_PUBLIC_RESEARCH || "[]") as ResearchProp[]
+  const peerReview = JSON.parse(process.env.NEXT_PUBLIC_PEER_REVIEW || "[]") as PeerReviewProp[]
   const timeline = JSON.parse(process.env.NEXT_PUBLIC_TIMELINE || "[]") as TimelineProp[]
 
   return (
@@ -53,6 +54,9 @@ const App: React.FC = () => {
       </section>
       <section id="research" className={`tab-content ${activeTab === "research" ? "active" : ""}`}>
         <TabContent content={research} />
+      </section>
+      <section id="peer-review" className={`tab-content ${activeTab === "peer-review" ? "active" : ""}`}>
+        <TabContent content={peerReview} />
       </section>
 
       <section id="timeline">

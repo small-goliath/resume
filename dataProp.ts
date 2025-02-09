@@ -45,7 +45,12 @@ type ResearchProp = {
   title: string;
   url: string;
   description: string;
+  original: string;
 }
 
-export type { AwardProp, EducationProp, InternationalProp, InternshipProp, ResearchProp, SkillProp, TimelineProp, VolunteerProp };
+type PeerReviewProp = {
+  image: string;
+}
+
+export type { AwardProp, EducationProp, InternationalProp, InternshipProp, PeerReviewProp, ResearchProp, SkillProp, TimelineProp, VolunteerProp };
 
