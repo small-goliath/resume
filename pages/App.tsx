@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { AwardProp, EducationProp, InternationalProp, InternshipProp, PeerReviewProp, ResearchProp, SkillProp, TimelineProp, VolunteerProp } from "../dataProp";
+import { AwardProp, EducationProp, InternationalProp, InternshipProp, PeerReviewProp, ResearchProp, SkillProp, VolunteerProp } from "../dataProp";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import TabContent from "./components/TabContent";
+import Timeline from "./components/Timeline";
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("education");
@@ -15,15 +16,15 @@ const App: React.FC = () => {
     setActiveTab(tab);
   };
 
-  const education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || "[]") as EducationProp[]
-  const skills = JSON.parse(process.env.NEXT_PUBLIC_SKILLS || "[]") as SkillProp[]
-  const award = JSON.parse(process.env.NEXT_PUBLIC_AWARD || "[]") as AwardProp[]
-  const volunteer = JSON.parse(process.env.NEXT_PUBLIC_VOLUNTEER || "[]") as VolunteerProp[]
-  const international = JSON.parse(process.env.NEXT_PUBLIC_INTERNATIONAL || "[]") as InternationalProp[]
-  const internship = JSON.parse(process.env.NEXT_PUBLIC_INTERNSHIP || "[]") as InternshipProp[]
-  const research = JSON.parse(process.env.NEXT_PUBLIC_RESEARCH || "[]") as ResearchProp[]
-  const peerReview = JSON.parse(process.env.NEXT_PUBLIC_PEER_REVIEW || "[]") as PeerReviewProp[]
-  const timeline = JSON.parse(process.env.NEXT_PUBLIC_TIMELINE || "[]") as TimelineProp[]
+  const education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION_TAB || "[]") as EducationProp[];
+  const skills = JSON.parse(process.env.NEXT_PUBLIC_SKILLS_TAB || "[]") as SkillProp[];
+  const award = JSON.parse(process.env.NEXT_PUBLIC_AWARD_TAB || "[]") as AwardProp[];
+  const volunteer = JSON.parse(process.env.NEXT_PUBLIC_VOLUNTEER_TAB || "[]") as VolunteerProp[];
+  const international = JSON.parse(process.env.NEXT_PUBLIC_INTERNATIONAL_TAB || "[]") as InternationalProp[];
+  const internship = JSON.parse(process.env.NEXT_PUBLIC_INTERNSHIP_TAB || "[]") as InternshipProp[];
+  const research = JSON.parse(process.env.NEXT_PUBLIC_RESEARCH_TAB || "[]") as ResearchProp[];
+  const peerReview = JSON.parse(process.env.NEXT_PUBLIC_PEER_REVIEW_TAB || "[]") as PeerReviewProp[];
+  
 
   return (
     <div className="container">
@@ -60,20 +61,7 @@ const App: React.FC = () => {
       </section>
 
       <section id="timeline">
-        <div className="timeline-container">
-          <div className="timeline">
-          {timeline.map((item, index) => (
-            <div className="timeline-item" key={index}>
-              <div className="timeline-icon">{item.started}</div>
-              <div className="timeline-content">
-                <h3>{item.where}</h3>
-                <p>{item.what}</p>
-                {/* <p>{item.skills}</p> */}
-              </div>
-            </div>
-          ))}
-          </div>
-        </div>
+        <Timeline />
       </section>
     </div>
   );
