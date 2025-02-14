@@ -14,7 +14,7 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/profile.png" />
         <meta property="og:description" content={webDescription} />
-        <link rel="stylesheet" href="styles/App.css" />
+        {/* <link rel="stylesheet" href="styles/App.css" /> */}
       </Head>
 
       <body>

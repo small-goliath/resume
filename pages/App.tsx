@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AwardProp, EducationProp, InternationalProp, InternshipProp, PeerReviewProp, ResearchProp, SkillProp, VolunteerProp } from "../dataProp";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
+import ScheduleClock from "./components/SceduleClock";
 import TabContent from "./components/TabContent";
 import Timeline from "./components/Timeline";
 
@@ -62,6 +63,10 @@ const App: React.FC = () => {
 
       <section id="timeline">
         <Timeline />
+      </section>
+
+      <section className="scedule-clock">
+        <ScheduleClock />
       </section>
     </div>
   );
