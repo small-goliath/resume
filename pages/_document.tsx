@@ -1,6 +1,6 @@
 import { Head, Html, Main, NextScript } from "next/document";
+import { Analytics } from '@vercel/analytics/react';
 
-// TODO: css 적용
 export default function Document() {
   const userName = `${process.env.NEXT_PUBLIC_PROFILE_NAME}`;
   const webUri = `${process.env.NEXT_PUBLIC_WEB_URI}`;
@@ -21,6 +21,7 @@ export default function Document() {
         <div id="root"></div>
         <Main />
         <NextScript />
+        <Analytics />
       </body>
     </Html>
   );
