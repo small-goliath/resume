@@ -575,7 +575,7 @@ section:hover {
     height: 100%;
     border: 1px solid black;
     border-radius: 50%;
-    background: conic-gradient(from 75deg, #C2E5F2 0deg 15deg, #73B1BF 15deg 45deg, #D9B91A 45deg 180deg, #C6963A 180deg 202.5deg, #495410 202.5deg 210deg, #A38342 210deg 225deg, #F2DEA2 225deg 255deg, #D9C252 36deg);
+    background: conic-gradient(from 85deg, #C2E5F2 0deg 30deg, #73B1BF 30deg 65deg, #D9B91A 65deg 200deg, #C6963A 200deg 230deg, #495410 230deg 245deg, #F2DEA2 245deg 275deg, #D9C252 36deg);
     display: flex;
     justify-content: center;
     align-items: center;
