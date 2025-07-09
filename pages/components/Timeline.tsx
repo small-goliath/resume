@@ -1,9 +1,11 @@
 import { TimelineProp } from "@/dataProp";
 import React from "react";
 
-const Timeline: React.FC = () => {
-  const timeline = JSON.parse(process.env.NEXT_PUBLIC_TIMELINE_TAB || "[]")as TimelineProp[]
+interface TimelineComponentProps {
+  timeline: TimelineProp[];
+}
 
+const Timeline = ({ timeline }: TimelineComponentProps) => {
   return (
     <div className="timeline-container">
       <div className="timeline">

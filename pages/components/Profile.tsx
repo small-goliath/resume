@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from "react";
 
-const Profile: React.FC = () => {
+const Profile = () => {
   const mediaType = process.env.NEXT_PUBLIC_PROFILE_BACKGROUND_MEDIA_TYPE || "";
   const isVideo = mediaType.startsWith("video");
   const mediaSource = `${process.env.NEXT_PUBLIC_CDN_BASE_URL}${process.env.NEXT_PUBLIC_PROFILE_BACKGROUND_OBJECT_PATH}`;

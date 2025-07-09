@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const ScheduleClock: React.FC = () => {
+const ScheduleClock = () => {
     const circle1Ref = useRef<HTMLDivElement>(null);
     const circle3Ref = useRef<HTMLDivElement>(null);
     const hourRef = useRef<HTMLDivElement>(null);
@@ -86,13 +86,14 @@ const ScheduleClock: React.FC = () => {
         rotateAnimation(secondRef.current, 60000, secDeg);
 
         drawSchedule([
-            { text: "취침", left: "75%", top: "30%" },
-            { text: "출근", left: "90%", top: "58%" },
-            { text: "재취침", left: "85%", top: "82%" },
-            { text: "업무", left: "30%", top: "75%" },
-            { text: "자기계발", left: "10%", top: "25%" },
-            { text: "퇴근", left: "20%", top: "10%" },
-            { text: "휴식/자기계발", left: "40%", top: "10%" }
+            { text: "취침", left: "65%", top: "10%" },
+            { text: "출근준비", left: "90%", top: "45%" },
+            { text: "출근", left: "90%", top: "60%" },
+            { text: "회사업무", left: "50%", top: "80%" },
+            { text: "퇴근", left: "6%", top: "53%" },
+            { text: "저녁식사", left: "-1%", top: "40%" },
+            { text: "병원", left: "1%", top: "30%" },
+            { text: "자기계발", left: "13%", top: "14%" }
         ]);
     }, []);
 

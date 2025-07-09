@@ -1,11 +1,10 @@
-// src/components/NavBar.tsx
 import React from 'react';
 
 interface NavBarProps {
   onTabClick: (tab: string) => void;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
+const NavBar = ({ onTabClick }: NavBarProps) => {
   return (
     <nav>
       <ul>
